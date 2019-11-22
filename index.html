@@ -1,0 +1,827 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wedding Details</title>
+    <style type="text/css">
+        .full-height {
+            position: relative;
+            height: 100%;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        .wrapper {
+            min-height: 100%;
+            height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+            height: 100%;
+            margin: 0 auto -34px; /* the bottom margin is the negative value of the footer's height */
+        }
+
+        .basefooter, .push {
+            height: 34px; /* .push must be the same height as .footer */
+            padding: 0px 8px 0px 8px;
+        }
+
+        .poweredby {
+            text-align: center;
+            padding: 8px 5px 8px 5px;
+            font-size: 12px;
+            color: #333333;
+        }
+
+            .poweredby a {
+                vertical-align: middle;
+            }
+
+            .poweredby .bottomlogo {
+                max-height: 10px;
+            }
+
+        .container-bottom {
+            /*position: fixed;*/
+            position: relative;
+            width: 100%;
+            bottom: 1%;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+    <link href="./Content/css" rel="stylesheet" type="text/css">
+    <style type="text/css" media="screen">
+            @font-face {
+                font-family: "Aramisi";
+                src: url(/static/wedding/fonts/aramisi.ttf) format("truetype");
+            }
+
+            @font-face {
+                font-family: "SignPainter-HouseScript";
+                src: url(/static/wedding/fonts/SignPainter-HouseScript.ttf) format("truetype");
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .full-height {
+                position: relative;
+                height: 100%;
+            }
+
+            body {
+                margin: auto;
+                /* background: #000; */
+                font-family: Raleway, sans-serif;
+                display: table;
+            }
+
+            .container {
+                text-align: center;
+                width: 320px;
+                margin: auto;
+                border: 1px solid #f8f8f8;
+            }
+
+            .title {
+                background-color: #f8f8f8;
+                padding: 12px;
+                font-family: "Aramisi";
+                font-size: 27px;
+                letter-spacing: 0.1px;
+                color: #585858;
+                word-wrap: break-word;
+            }
+
+            .dots span {
+                height: 5px;
+                width: 5px;
+                background-color: lightgray;
+                border-radius: 50%;
+                display: inline-block;
+                cursor: pointer;
+            }
+
+                .dots span.active {
+                    background-color: black;
+                    pointer-events: none;
+                }
+
+            .slider {
+                height: 220px;
+                max-width: 100%;
+                position: relative;
+                margin: auto;
+            }
+
+                .slider .slide {
+                    display: none;
+                }
+
+                .slider img {
+                    max-width: 100%;
+                    height: 220px;
+                }
+
+            /*
+        .controls{
+          position: absolute;
+          top: 40%;
+        }
+
+        .controls > a{
+          cursor: pointer;
+          width: 18px;
+          transition: 0.6s ease;
+          color: white;
+        }
+
+        .prev{
+          padding-left: 10px;
+        }
+
+        .next{
+          position: relative;
+          left: 270px;
+        }
+
+        .prev:hover, .next:hover {
+          color: black;
+        } */
+
+            .details {
+                padding: 18px;
+                /* margin-top: 12px; */
+            }
+
+                .details img {
+                    width: 100%;
+                }
+
+            .names {
+                font-size: 40px;
+                font-family: SignPainter-HouseScript;
+                font-weight: normal;
+                letter-spacing: 0.2px;
+                margin-top: 24px;
+                color: #585858;
+                word-wrap: break-word;
+            }
+
+            .weds {
+                font-family: TimesNewRomanPSMT;
+                font-size: 16px;
+                font-weight: 500;
+                padding-top: 8.75px;
+                padding-bottom: 8.75px;
+            }
+
+            .button-text {
+                cursor: pointer;
+                font-family: Helvetica;
+                font-size: 16px;
+                font-weight: bold;
+                color: #585858;
+                margin-top: 40px;
+                background-color: #f8f8f8;
+                border: solid 2px #c8c8c8;
+                padding: 10px 25px 10px 25px;
+                border-radius: 2px;
+            }
+
+            .date-time {
+                margin-top: 20px;
+                font-family: TimesNewRomanPSMT;
+                font-size: 18px;
+                color: #585858;
+                word-wrap: break-word;
+            }
+
+            .venue {
+                margin-top: 24px;
+                font-family: TimesNewRomanPSMT;
+                font-size: 20px;
+                color: #585858;
+                word-wrap: break-word;
+            }
+
+            .location {
+                margin-left: 31px;
+                position: relative;
+                width: 220px;
+                margin-top: 20px;
+                line-height: 30px;
+                padding: 5px;
+                border-radius: 2px;
+                background-color: #3d7bf1;
+                border: solid 1px #3d7bf1;
+                font-family: Helvetica;
+                font-size: 14px;
+                font-weight: bold;
+                text-align: left;
+                color: #ffffff;
+            }
+
+                .location img {
+                    padding-left: 12px;
+                    width: 40px;
+                    float: left;
+                }
+
+            .break {
+                margin-top: 35px;
+            }
+
+            .rsvp {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                /* padding-left: 10px; */
+                /* padding-right: 10px; */
+                font-family: TimesNewRomanPSMT;
+                font-size: 18px;
+                color: #585858;
+            }
+
+                .rsvp .fields {
+                    width: 100%;
+                    padding-top: 20px;
+                    text-align: left;
+                    /* padding-left: 20px; */
+                    /* padding-right: 20px; */
+                }
+
+            input[type="text"] {
+                padding-left: 5px;
+                width: 100%;
+                height: 43px;
+                font-size: 16px;
+                border-radius: 2px;
+                background-color: #ffffff;
+                border: solid 1px #979797;
+                margin-bottom: 3px;
+            }
+
+            .accept-btn {
+                cursor: pointer;
+                display: inline;
+                border-radius: 2px;
+                background-color: #c8c8c8;
+                border: solid 2px #585858;
+                text-align: center;
+                font-family: Helvetica;
+                font-weight: bold;
+                color: #585858;
+                padding: 7px 44px 7px 43.75px;
+                font-size: 14px;
+            }
+
+            .decline-btn {
+                cursor: pointer;
+                display: inline;
+                border-radius: 2px;
+                background-color: #f8f8f8;
+                border: solid 2px #dcdcdc;
+                text-align: center;
+                font-family: Helvetica;
+                font-weight: bold;
+                color: #585858;
+                padding: 7px 44px 7px 43.75px;
+                font-size: 14px;
+            }
+
+            .add-guests {
+                font-family: Helvetica;
+                color: #585858;
+                cursor: pointer;
+                margin-top: 45px;
+                text-align: center;
+                padding: 10px 5px 10px 5px;
+                border-radius: 2px;
+                background-color: #ffffff;
+                border: solid 1px #000000;
+            }
+
+            .submit-btn {
+                width: 100%;
+                cursor: pointer;
+                text-align: center;
+                margin-top: 20px;
+                font-family: Helvetica;
+                /* font-weight: bold; */
+                font-size: 18px;
+                color: #ffffff;
+                border-radius: 2px;
+                background-color: #c0392b;
+                border: solid 1px #c0392b;
+                padding: 10px 5px;
+            }
+
+            /* .fade{
+          -webkit-opacity: 0.25;
+          -moz-opacity: 0.25;
+          opacity: 0.25;
+          -webkit-transition: all 3s ease;
+          -moz-transition: all 3s ease;
+          -ms-transition: all 3s ease;
+          -o-transition: all 3s ease;
+          transition: all 3s ease;
+        } */
+
+            .ask-question .guest {
+                width: 100%;
+                text-align: left;
+                margin: 3px auto;
+            }
+
+                .ask-question .guest input {
+                    margin-bottom: 7px;
+                }
+
+            .ask-question textarea, .rsvp-question textarea {
+                width: 100%;
+                margin-bottom: 21px;
+            }
+
+            .rsvp-question-options {
+                text-align: left;
+            }
+
+            .option input[type="radio"] {
+                margin-bottom: 5px;
+            }
+
+            .guest {
+                margin: 20px auto;
+            }
+    </style>
+
+
+
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="container">
+            <div class="title">
+                Thiệp cưới
+            </div>
+
+
+
+            <div class="slider">
+
+                <div class="slide" style="display: block;">
+                    <img id="current-image-0" data-idx="0" src="./Content/wedding.jpg">
+                </div>
+
+                <!-- <div class="controls">
+                  <a class="prev" onclick="moveSlides(-1, 0)">&#10094;</a>
+                  <a class="next" onclick="moveSlides(1, 0)">&#10095;</a>
+                </div> -->
+            </div>
+            <div class="dots">
+
+                <span class="dot active" onclick="moveSlides(0)"></span>
+
+            </div>
+
+
+
+            <div class="details">
+                <img src="./Content/image1.png">
+
+                <div class="names">
+                    <div>
+                        SinhVV
+                    </div>
+                    <div class="weds">
+                        weds
+                    </div>
+                    <div>
+                        PhuongDVT
+                    </div>
+                </div>
+
+
+                <img src="./Content/image2.png" class="break">
+                <div class="date-time">
+
+
+                    <div style="padding-bottom:10px;">
+                        05th Jan, 2020
+                    </div>
+
+
+                    <div style="padding-bottom:15px;">
+                        11:00 AM - 2:00 PM &nbsp;<span>(GMT +07:00)</span>
+                    </div>
+
+
+                    <!-- <div title="Add to Calendar" class="addeventatc" style="text-decoration:underline;font-family:Helvetica;font-size:15px;">
+                        Add to Calendar
+                        <span class="start">20200105T040000Z</span>
+                        <span class="end">20200105T070000Z</span>
+                        <span class="title">Thiệp cưới</span>
+                        <span class="description">Wedding Event : SinhVV weds PhuongDVT</span>
+                        <span class="location">Núi Thành, Quảng Nam</span>
+                    </div> -->
+                    <div style="font-family:Helvetica;font-size:15px;">
+                        <a style="color: #585858;" target="_blank" href="https://calendar.google.com/calendar/r/eventedit?text=Thi%E1%BB%87p+c%C6%B0%E1%BB%9Bi&amp;dates=20200105T040000Z/20200105T070000Z&amp;details=Wedding+Event+:+SinhVV+weds+PhuongDVT&amp;location=N%C3%BAi+Th%C3%A0nh,+Qu%E1%BA%A3ng+Nam&amp;sf=true&amp;output=xml">
+                            Save to Calendar
+                        </a>
+                    </div>
+
+
+                </div>
+                <div class="venue">
+                    Núi Thành, Quảng Nam
+                </div>
+
+                <a href="https://www.google.com/maps/search/?api=1&amp;query=15.4332558468,108.64423871&amp;query_place_id=ChIJA03wpsnIaTERNAsR0zIAzy0" target="_blank" style="text-decoration:none;">
+                    <div class="location">
+                        <img src="./Content/image3.png">&nbsp;&nbsp;
+                        <span>View on Google Maps</span>
+                    </div>
+                </a>
+
+                <img src="./Content/image2.png" class="break">
+
+            </div>
+        </div>
+        <!-- <script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script> -->
+        <script type="text/javascript">
+
+            var submitBtn = document.getElementById('submit-btn');
+            var slide = document.getElementsByClassName('slide');
+            var images = document.querySelectorAll('img[id^="current-image"]');
+            images.forEach(function (el, idx) {
+                el.addEventListener("touchmove", function (e) {
+                    moveSlides(parseInt(e.target.getAttribute('data-idx')) + 1, images.length);
+                }, false);
+                el.addEventListener("click", function (e) {
+                    moveSlides(parseInt(e.target.getAttribute('data-idx')) + 1, images.length);
+                }, false);
+            });
+            var dots = [];
+            if (document.getElementsByClassName('dots')[0]) {
+                document.getElementsByClassName('dots')[0].childNodes.forEach(function (el, idx) {
+                    if (el.nodeType === 1) {
+                        dots.push(el);
+                    }
+                });
+            }
+
+
+            if (slide.length) {
+                moveSlides(0);
+            }
+
+            function moveSlides(idx, totalLength) {
+                if (totalLength) {
+                    if (idx === totalLength) {
+                        idx = 0;
+                    }
+                }
+                // console.log(idx, totalLength);
+                for (i = 0; i < slide.length; i++) {
+                    slide[i].style.display = "none";
+                    dots[i].classList.remove("active");
+                }
+                slide[idx].style.display = "block";
+                dots[idx].classList.add("active");
+            }
+
+            var status = true;
+            var allStatusBtns = document.getElementById('status-btns').childNodes;
+
+            function toggleStatus(accept, element) {
+                status = accept;
+                element.className = 'accept-btn';
+
+                var ask_invitee_question = document.getElementsByClassName('ask-question');
+                var guests_div = document.getElementById('input-fields');
+                var add_guest_btn = document.getElementById('add-guests-btn');
+
+                // 1: Element node
+                // 3: Text node
+                // 8: Comment node
+                // 9: the top level node, which is document
+                allStatusBtns.forEach(function (el, idx) {
+                    if (el.nodeType === 1) {
+                        if (el.id !== element.id) {
+                            el.className = 'decline-btn';
+
+                        }
+                    }
+                });
+
+                if (accept) {
+                    // Show question to guest
+                    if (ask_invitee_question.length) {
+                        ask_invitee_question[0].style.display = 'block';
+                    }
+                    // Show guests div
+                    if (guests_div) {
+                        guests_div.style.display = 'block';
+                    }
+                    // Show add guest button
+                    if (add_guest_btn) {
+                        add_guest_btn.style.display = 'block';
+                    }
+                } else {
+                    // Hide question from guest
+                    if (ask_invitee_question.length) {
+                        ask_invitee_question[0].style.display = 'none';
+                    }
+                    // Hide guests divisions
+                    if (guests_div) {
+                        guests_div.style.display = 'none';
+                    }
+                    // Hide add guest button
+                    if (add_guest_btn) {
+                        add_guest_btn.style.display = 'none';
+                    }
+                }
+
+            }
+
+            var inputsField = document.getElementById('input-fields');
+            var addGuestButton = document.getElementById('add-guests-btn');
+
+
+            function checkGuestInput(event) {
+
+                var parent_guest = event.path[1].closest('.guest');
+
+                var inputs = parent_guest.getElementsByTagName('input');
+                var textarea = parent_guest.getElementsByTagName('textarea');
+                var required_class = parent_guest.getElementsByClassName('required');
+
+
+            }
+
+            function addGuests(totalGuests) {
+                var existingGuests = inputsField.getElementsByClassName('inputs').length;
+                if (!isGuestLimitOk(existingGuests, totalGuests)) {
+                    return;
+                }
+
+                var div = document.createElement('div');
+                div.setAttribute('class', 'guest');
+                // var label = (existingGuests !== 0 ? "Name of Guest " + existingGuests : "Enter your name");
+                var label = 'Full Name (Guest ' + (existingGuests + 1) + ')';
+                // div.setAttribute('id', 'div'+existingGuests);
+                div.appendChild(document.createTextNode(label));
+                var input = document.createElement("input");
+                input.setAttribute('type', 'text');
+                input.setAttribute('class', 'inputs');
+                input.setAttribute('value', '');
+                input.setAttribute('onkeyup', 'checkGuestInput(event)');
+                // input.setAttribute('id', 'full_name'+existingGuests);
+                div.appendChild(input);
+
+                // Ask question
+
+
+                inputsField.appendChild(div);
+                isGuestLimitOk(inputsField.getElementsByClassName('inputs').length, totalGuests + 1);
+            }
+
+            function isGuestLimitOk(existingGuests, totalGuests) {
+                if (existingGuests >= totalGuests) {
+                    addGuestButton.style.opacity = '0.25';
+                    alert('You can add upto ' + totalGuests + ' additional guests.');
+                    return false;
+                }
+                return true;
+            }
+
+
+            /*
+            addGuests(0);
+            */
+
+
+
+
+            function submit() {
+
+                if (!validateForm()) {
+                    return;
+                }
+
+                var data = {
+                    accept: JSON.parse(status),
+                    fullNames: [],
+                    data: {
+                        full_name: '',
+                        email: '',
+                        phone: '',
+                        ans: ''
+                    },
+                    guests: []
+                };
+                var existingGuests = inputsField.getElementsByClassName('inputs'); // HTMLCollection are arrays inside arrays
+
+                // console.log(existingGuests);
+                // console.log(0);
+                if (existingGuests.length > 0 + 1) {
+                    // console.log('returning from submit');
+                    return;
+                } else {
+                    // console.log('submit proccessed');
+                }
+
+                var inv_f_n = document.getElementsByClassName('inputs-invitee_full_name');
+                var inv_e = document.getElementsByClassName('inputs-invitee_email');
+                var inv_p = document.getElementsByClassName('inputs-invitee_phone');
+                var inv_ans = document.getElementsByName('invitee_answer');
+
+                data.data.full_name = inv_f_n.length ? inv_f_n[0].value : '';
+                data.data.email = inv_e.length ? inv_e[0].value : '';
+                data.data.phone = inv_p.length ? inv_p[0].value : '';
+                data.data.ans = inv_ans.length ? inv_ans[0].value : '';
+
+                for (var i = 0; i < existingGuests.length; i++) {
+                    if (existingGuests[i].value.trim().length) {
+                        data.fullNames.push(existingGuests[i].value);
+                    }
+
+                    // Add guests
+                    if (existingGuests[i].value.trim().length) {
+                        var guest = {
+                            name: existingGuests[i].value,
+                            ans: ''
+                        };
+
+                        // get answer if exists
+                        var g_parent = existingGuests[i].closest('.guest');
+                        var aa_ans = g_parent.querySelector('[name="guestAnswer' + i + '"]');
+                        var g_ans = '';
+                        if (aa_ans) {
+                            if (aa_ans.type == 'radio') {
+                                g_ans = g_parent.querySelector('[name="guestAnswer' + i + '"]:checked').value;
+                            } else {
+                                g_ans = g_parent.querySelector('[name="guestAnswer' + i + '"]').value;
+                            }
+
+                            guest.ans = g_ans;
+                        }
+                        data.guests.push(guest);
+                    }
+                }
+
+                // console.log(data);
+
+                if (data.data.full_name) {
+                    var urlId = location.pathname.slice(1);
+                    var xhttp = new XMLHttpRequest();
+                    submitBtn.innerHTML = 'SUBMITTING'
+                    submitBtn.disabled = true;
+                    xhttp.open("POST", "weddingqr/response/" + urlId + "/", true);
+                    xhttp.setRequestHeader("Content-Type", "application/json");
+                    xhttp.onreadystatechange = function () {
+                        submitBtn.innerHTML = 'SUBMIT'
+                        submitBtn.disabled = false;; // enabling click event because the response has been recorded
+                        if (xhttp.readyState === XMLHttpRequest.DONE) {
+                            alert(xhttp.responseText);
+                        }
+                    };
+                    xhttp.send(JSON.stringify(data));
+                }
+            }
+        </script>
+
+        <script>
+            function validateForm() {
+                /**
+                 * Validate if user declines the request.
+                 * In this case only guest name, email, phone is made required
+                 */
+                if (!JSON.parse(status)) {
+                    var invitee_name = document.getElementsByClassName('inputs-invitee_full_name');
+                    var invitee_phone = document.getElementsByClassName('inputs-invitee_phone');
+                    var invitee_email = document.getElementsByClassName('inputs-invitee_email');
+
+                    if (invitee_name.length) {
+                        if (!invitee_name[0].value) {
+                            alert('Please fill all required fields');
+                            return false;
+                        }
+                    }
+
+                    if (invitee_email.length) {
+                        if (!invitee_email[0].value) {
+                            alert('Please fill all required fields');
+                            return false;
+                        }
+                    }
+
+                    if (invitee_phone.length) {
+                        if (!invitee_phone[0].value) {
+                            alert('Please fill all required fields');
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+
+                // console.log('validating form');
+                var inputs = document.getElementsByTagName("input"), input = null, select = null, not_pass = false;
+                var selects = document.getElementsByTagName("select");
+                var textarea = document.getElementsByTagName("textarea");
+
+                // console.log(inputs, 'inputs');
+                // console.log(selects, 'selects');
+                // console.log(textarea, 'textarea');
+
+                for (var i = 0, len = inputs.length; i < len; i++) {
+                    input = inputs[i];
+
+                    // console.log(input, input.type, input.hasAttribute('required'));
+
+                    if (input.type == "hidden") {
+                        continue;
+                    }
+
+                    if (input.type == "radio" && input.hasAttribute('required') && !input.checked) {
+                        var input_name = input.name;
+                        var input_checked = document.querySelector('[name="' + input_name + '"]:checked');
+                        if (input_checked) {
+                            not_pass = false;
+                            continue;
+                        }
+                        not_pass = true;
+                    }
+
+                    if (input.type == "checkbox" && input.hasAttribute('required') && !input.checked) {
+                        var input_name = input.name;
+                        var input_checked = document.querySelector('[name="' + input_name + '"]:checked');
+                        if (input_checked) {
+                            not_pass = false;
+                            continue;
+                        }
+                        not_pass = true;
+                    }
+
+                    if (input.type == "text" && input.hasAttribute('required') && !input.value) {
+                        not_pass = true;
+                    }
+
+                    if (input.type == "number" && input.hasAttribute('required') && !input.value) {
+                        not_pass = true;
+                    }
+
+                    if (input.type == "email" && input.hasAttribute('required') && !input.value) {
+                        not_pass = true;
+                    }
+
+                    if (input.type == "checkbox" && input.hasAttribute('required') && !input.checked) {
+                        not_pass = true;
+                    }
+
+                    if (not_pass) {
+                        break;
+                    }
+                }
+
+                for (var i = 0, len = selects.length; i < len; i++) {
+                    select = selects[i];
+                    if (!select.value && select.hasAttribute('required')) {
+                        not_pass = true;
+                        break;
+                    }
+                }
+
+                for (var i = 0; i < textarea.length; i++) {
+                    var text = textarea[i];
+                    if (!text.value && text.hasAttribute('required')) {
+                        not_pass = true;
+                        break;
+                    }
+                }
+
+                if (not_pass) {
+                    alert('Please fill all required fields.')
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+
+
+        <div class="push"></div>
+        <div class="container-bottom">
+            <div class="poweredby">Powered by <a href="#"><img class="bottomlogo" src="./Content/logo.png"></a></div>
+        </div>
+
+    </div>
+
+</body>
+</html>
